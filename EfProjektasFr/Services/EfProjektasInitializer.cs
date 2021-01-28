@@ -25,9 +25,9 @@ namespace EfProjektasFr.Services
                 string[] temp = item.Split(',');
                 Hobby HData = new Hobby
                 {
-                    HobbyId = int.Parse(item[0].ToString()),
-                    Text = item[1].ToString(),
-                    TextLt = item[2].ToString()
+                    HobbyId = int.Parse(temp[0]),
+                    Text = temp[1],
+                    TextLt = temp[2]
                 };
                 context.Hobbies.Add(HData);
             }
