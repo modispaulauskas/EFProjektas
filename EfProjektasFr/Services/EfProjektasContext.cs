@@ -26,7 +26,24 @@ namespace EfProjektasFr.Services
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<>
+            modelBuilder.Entity<Person>()
+                .HasKey(p => p.PersonId);
+
+            modelBuilder.Entity<Student>()
+                .HasKey(s => s.PersonId);
+
+            modelBuilder.Entity<Course>();
+
+            modelBuilder.Entity<Hobby>();
+
+            modelBuilder.Entity<Dormitory>();
+
+            modelBuilder.Entity<Enrolment>();
+
+            modelBuilder.Entity<Location>();
+
+            modelBuilder.Entity<Profession>();
+
         }
     }
 }
