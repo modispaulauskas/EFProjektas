@@ -21,27 +21,33 @@ namespace EfProjektasFr.Services
 
         public EfProjektasContext() : base("StudentDb")
         {
-
+            Database.SetInitializer(new EfProjektasInitializer());
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Person>();
+            modelBuilder.Entity<Person>()
+                .HasKey(p => p.PersonId);
 
-            modelBuilder.Entity<Student>();
+            modelBuilder.Entity<Student>()
+                .HasKey(s => new { s.DormitoryId, s.PersonId, s.StudentId });
 
-            modelBuilder.Entity<Course>();
+            modelBuilder.Entity<Course>()
+                .HasKey(c => c.CourseId);
 
-            modelBuilder.Entity<Hobby>();
+            modelBuilder.Entity<Hobby>()
+                .HasKey(h => h.HobbyId);
 
-            modelBuilder.Entity<Dormitory>();
+            modelBuilder.Entity<Dormitory>()
+                .HasKey(d => d.LocationId);
 
-            modelBuilder.Entity<Enrolment>();
+            modelBuilder.Entity<Enrolment>()
+                .HasKey(e => new { e.StudentId, e.CourseId });
 
-            modelBuilder.Entity<Location>();
+            modelBuilder.Entity<Location>()
+                .HasKey(l => l.LocationId);
 
-            modelBuilder.Entity<Profession>();
-
+            modelBuilder.Entity<Profession>()
+                .HasKey(p => p.ProfessionId);
         }
     }
 }

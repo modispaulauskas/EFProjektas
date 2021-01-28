@@ -21,7 +21,6 @@ namespace EfProjektasFr.Services
 
             foreach (var item in HobbyInitialData.DataSeed)
             {
-                
                 string[] temp = item.Split(',');
                 Hobby HData = new Hobby
                 {
