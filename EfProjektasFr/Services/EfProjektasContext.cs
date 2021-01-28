@@ -29,7 +29,7 @@ namespace EfProjektasFr.Services
                 .HasKey(p => p.PersonId);
 
             modelBuilder.Entity<Student>()
-                .HasKey(s => new { s.DormitoryId, s.PersonId, s.StudentId });
+                .HasKey(s => s.StudentId);
 
             modelBuilder.Entity<Course>()
                 .HasKey(c => c.CourseId);
