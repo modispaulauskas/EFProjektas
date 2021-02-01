@@ -1,4 +1,5 @@
 ﻿using EFAiskinimas.Common;
+using EfProjektasFr.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,6 +19,8 @@ namespace EfProjektasFr.Services
         public DbSet<Dormitory> Dormitories { get; set; }
         public DbSet<Enrolment> Enrolments { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<ProfessionCourse> ProfessionsCourses { get; set; }
+        public DbSet<StudentExtended> StudentAcivities { get; set; } 
 
         public EfProjektasContext() : base("StudentDb")
         {
@@ -30,7 +33,7 @@ namespace EfProjektasFr.Services
 
             modelBuilder.Entity<Student>()
                 .HasKey(s => s.StudentId);
-
+               
             modelBuilder.Entity<Course>()
                 .HasKey(c => c.CourseId);
 
@@ -48,6 +51,11 @@ namespace EfProjektasFr.Services
 
             modelBuilder.Entity<Profession>()
                 .HasKey(p => p.ProfessionId);
+
+            modelBuilder.Entity<ProfessionCourse>()
+                .HasKey(p => new { p.CourseId, p.ProfessionId});
+
+            modelBuilder.Entity<StudentExtended>();
         }
     }
 }
