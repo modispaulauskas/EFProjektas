@@ -13,7 +13,7 @@ namespace EfProjektasFr.Models
         [Key]
         public int StudentId { get; set; }
         public string Profession { get; set; }
-        public List<string> Hobbies { get; set; } = new List<string>();
+        public List<string> Hobbies { get; set; }
 
     }
 }

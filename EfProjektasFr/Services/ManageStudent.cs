@@ -1,4 +1,5 @@
 ﻿using EFAiskinimas.Common;
+using EFAiskinimas.Common.InitialData;
 using EfProjektasFr.Models;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,18 @@ namespace EfProjektasFr.Services
 {
     public class ManageStudent
     {
-        public void GetStudentCourses()
+        public void GenerateHobbies()
         {
-            //using (var context = new EfProjektasContext())
-            //{
-            //    //List<StudentCourse> studentCourse;
-            //    List<Student> students; 
-            //    Random rnd = new Random();
+            const int minHobbies = 1;
+            const int maxHobbies = 3;
 
-            //    for (int i = 0; i < students[i].StudentId.; i++)
-            //    {
-            //        var studentCourse = new StudentCourse
-            //        {
-            //            CoursesId = rnd.Next(0, 20),
-            //            StudentId = students.
-            //        };
-            //    }
+            var random = new Random();
 
-            //}
+            var numberOfHobies = random.Next(minHobbies, maxHobbies + 1);
+            List<string> randomHobies =
+                HobbyInitialData.DataSeed
+                   .Take(numberOfHobies)
+                   .Select(h => h.)
         }
     }
 }

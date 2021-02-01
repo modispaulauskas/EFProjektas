@@ -20,7 +20,7 @@ namespace EfProjektasFr.Services
         public DbSet<Enrolment> Enrolments { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<ProfessionCourse> ProfessionsCourses { get; set; }
-        public DbSet<StudentExtended> StudentAcivities { get; set; } 
+        public DbSet<StudentExtended> StudentsExtended { get; set; } 
 
         public EfProjektasContext() : base("StudentDb")
         {
@@ -38,7 +38,8 @@ namespace EfProjektasFr.Services
                 .HasKey(c => c.CourseId);
 
             modelBuilder.Entity<Hobby>()
-                .HasKey(h => h.HobbyId);
+                .HasKey(h => h.HobbyId)
+                .Property(h => h.Text);
 
             modelBuilder.Entity<Dormitory>()
                 .HasKey(d => d.LocationId);

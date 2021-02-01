@@ -42,11 +42,17 @@ namespace EfProjektasFr.Services
                 {
                     StudentId = item.StudentId,
                     Profession = ProfessionInitialData.DataSeed[rnd.Next(1, ProfessionInitialData.DataSeed.Length - 1)].Text,
-                    Hobbies = ""
+                    Hobbies = context.Hobbies.Local
+                        .Take(rnd.Next(1, 3))
+                        .Select(h => h.Text)
+                        .ToList()
+                    
+                    
                 };
-                context.StudentExtended.Add(studentExtended);
+                context.StudentsExtended.Add(studentExtended);
             }
 
         }
+
     }
 }
